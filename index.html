@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DENG Shuyi Angelica — My Autobiography</title>
+<meta name="description" content="An autobiography and a reflection on writing in public, made for a course on digital storytelling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   LOUD & CLEAR — single-page archive
+   Views: home / post-1 / post-2 / about, smooth in-page
+   transitions. Auto-generated square covers in a horizontal
+   scroller. Viewport-locked mosaic on home.
+   ============================================================ */
+
+:root{
+  --paper:#f5f4ef;
+  --ink:#0f0f0e;
+  --card-dark:#151515;
+  --card-cream:#f9f6f1;
+  --red:#ef5d44;
+  --yellow:#fcdd71;
+  --blue:#9fd5f7;
+
+  --nav-bg:#ffffff;
+  --nav-fg:#0f0f0e;
+  --nav-muted:#62615d;
+  --nav-line:rgba(15,15,14,.08);
+  --nav-rule:rgba(15,15,14,.16);
+  --nav-search:#e8e7e2;
+  --nav-cta:#0f0f0e;
+  --nav-cta-fg:#ffffff;
+
+  --col:205.33px;
+  --gap:13px;
+  --pitch:282.5px;
+  --r:22px;
+
+  --display:"Archivo","Arial Black",Impact,system-ui,sans-serif;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  --img-sculpt:url("assets/img/cover-1.svg");
+  --img-man:url("assets/img/cover-2.svg");
+  --img-visit:url("assets/img/band-about.svg");
+  --img-sil:url("assets/img/cover-about.svg");
+  --grain:url("assets/img/grain.svg");
+
+  --mode:mob;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+  overflow:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid #3b82f6;outline-offset:3px;border-radius:4px}
+
+.stage{position:relative;width:100%;height:100svh;overflow:hidden}
+
+/* ============ VIEWS ============ */
+.view{
+  position:absolute;inset:0;z-index:2;
+  opacity:0;pointer-events:none;
+  transform:translateY(34px);
+  transition:opacity .55s var(--ease-out),transform .55s var(--ease-out);
+  visibility:hidden;
+}
+.view.is-active{
+  opacity:1;pointer-events:auto;transform:translateY(0);visibility:visible;
+}
+/* home keeps hero+grid layout; articles scroll */
+.view-article{background:var(--paper);overflow-y:auto;overscroll-behavior:contain;padding-top:142px}
+.view-article::-webkit-scrollbar{width:10px}
+.view-article::-webkit-scrollbar-thumb{background:#d9d7d0;border-radius:6px}
+
+/* ============ MOSAIC ============ */
+.grid{position:absolute;top:0;bottom:0;z-index:1;pointer-events:none}
+.col{position:absolute;top:0;width:var(--col);will-change:transform;display:flex;flex-direction:column;gap:var(--gap)}
+.cell{position:relative;width:var(--col);height:var(--col);border-radius:var(--r);overflow:hidden;flex:none}
+.ph{background-size:cover;background-position:center}
+.ph::before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+.cell.red{background:var(--red)}
+.cell.yellow{background:var(--yellow)}
+.cell.blue{background:var(--blue)}
+.cell.cream{background:var(--card-cream);box-shadow:inset 0 0 0 1px #e9e6df}
+.cell.dark{background:var(--card-dark);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.cell.red::after,.cell.yellow::after,.cell.blue::after,.cell.cream::after{
+  content:"";position:absolute;inset:0;background-image:var(--grain);
+  background-size:300px 300px;opacity:.13;mix-blend-mode:multiply;pointer-events:none;
+}
+.cell.dark::after{
+  content:"";position:absolute;inset:0;background-image:var(--grain);
+  background-size:300px 300px;opacity:.035;mix-blend-mode:screen;pointer-events:none;
+}
+.f-sculpt::before{width:124.19%;height:112.57%;left:-16.07%;top:-8.5%;background-size:100% 100%}
+.f-man::before{width:113.48%;height:103.36%;left:-5.36%;top:-3.54%;background-size:100% 100%}
+.f-visit::before{width:110.07%;height:100%;left:-3.9%;top:8.5%;background-size:100% 100%}
+.f-visit{background:linear-gradient(90deg,#c6c5c3,#9b9a98 55%,#7a7977)}
+.f-visit::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.26),rgba(0,0,0,0) 13%)}
+.f-sil::before{width:139.29%;height:126.37%;left:-8.77%;top:-56.64%;background-size:100% 100%}
+.i-sculpt{--pic:var(--img-sculpt)}
+.i-man{--pic:var(--img-man)}
+.i-visit{--pic:var(--img-visit)}
+.i-sil{--pic:var(--img-sil)}
+.i-sculpt::before,.i-man::before,.i-visit::before,.i-sil::before{background-image:var(--pic)}
+
+@keyframes colDown{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
+@keyframes colUp{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}
+@keyframes rowLeft{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes rowRight{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+.col{animation:colDown 14.6s linear infinite}
+.c2,.x1,.x3{animation-name:colUp}
+@media (prefers-reduced-motion:reduce){.col{animation:none}}
+
+/* ============ HEADER ============ */
+.hdr{
+  position:absolute;left:40px;right:40px;top:0;height:142px;z-index:6;
+  background:var(--nav-bg);color:var(--nav-fg);
+  border-radius:0 0 22px 22px;
+  box-shadow:0 0 0 1px var(--nav-line),0 16px 36px -24px rgba(15,15,14,.30);
+  display:flex;flex-direction:column;
+}
+.util{
+  height:40px;border-bottom:1px solid var(--nav-line);
+  display:flex;align-items:center;padding:0 20px;
+  font-size:14px;font-weight:500;color:var(--nav-muted);
+}
+.util .ph-line{display:flex;align-items:center;gap:8px;line-height:1.15;white-space:nowrap}
+.util .ph-line svg{flex:none}
+.util .vr{width:1px;height:24px;background:var(--nav-line);margin:0 16px}
+.util .unav{display:flex;align-items:center;gap:20px;margin-left:auto}
+.util .unav a{color:var(--nav-muted);font-size:14px;font-weight:500}
+.util .unav a:hover{color:var(--nav-fg)}
+.util .search{
+  width:32px;height:32px;background:var(--nav-search);border-radius:8px;
+  display:grid;place-items:center;margin-left:14px;color:var(--nav-muted);
+  transition:background .25s,color .25s;
+}
+.util .search:hover{background:var(--ink);color:#fff}
+.main-row{flex:1;display:flex;align-items:center;gap:32px;padding:0 24px}
+.logo{display:flex;flex-direction:column;justify-content:center;line-height:1}
+.logo .brand{
+  font-family:var(--display);font-weight:900;font-size:31px;
+  font-stretch:85%;letter-spacing:-.01em;
+  -webkit-text-stroke:.35px currentColor;
+}
+.logo .tag{font-size:8.6px;letter-spacing:.14em;text-transform:uppercase;color:var(--nav-muted);margin-top:5px}
+.nav{display:flex;align-items:center;gap:22px;margin-left:8px}
+.nav a{
+  font-size:14px;font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:center;gap:8px;
+}
+.nav a:hover{color:var(--red)}
+.nav .arrow{width:24px;height:24px;border-radius:50%;background:var(--nav-fg);color:#fff;display:grid;place-items:center;flex:none}
+.nav .arrow svg{width:11px;height:11px}
+.nav .sep{width:1px;height:20px;background:var(--nav-rule)}
+.cta{margin-left:auto;display:flex;align-items:center;gap:10px;position:relative}
+.cta .tickets{
+  background:var(--nav-cta);color:var(--nav-cta-fg);
+  width:116px;height:63px;border-radius:22px;
+  display:grid;place-items:center;font-size:14px;font-weight:700;
+  position:relative;z-index:1;
+}
+.cta .tickets:hover{background:#2c2c2a}
+
+/* ============ HOME ============ */
+.hero{position:absolute;z-index:3;left:86px;top:calc(200px + (var(--H,800) - 800)*0.5px);width:560px;pointer-events:none}
+.hero .inner{pointer-events:auto}
+h1{
+  font-family:var(--display);font-weight:900;
+  font-size:64px;line-height:60px;letter-spacing:-.06em;text-transform:uppercase;
+  -webkit-text-stroke:1.1px var(--ink);
+}
+h1 .ln{display:block}
+h1 .ln span{font-size:.95em;letter-spacing:-.05em}
+.hero p{width:520px;margin-top:36px;font-size:18px;line-height:26.6px}
+.hero p b{font-weight:700}
+.acts{display:flex;align-items:center;gap:18px;margin-top:26px}
+.acts .tickets{background:var(--ink);color:#fff;padding:16px 28px;border-radius:22px;font-size:14px;font-weight:700}
+.acts .inst{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.acts .inst .arrow{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center}
+.acts .inst .arrow svg{width:12px;height:12px}
+
+/* ---- cover cells: live inside the scrolling columns ---- */
+.cell.cover{
+  cursor:pointer;
+  background:var(--cover-bg, linear-gradient(150deg,#b8c49a,#8ea06a));
+  color:var(--cover-fg,#2c3a24);
+  pointer-events:auto;
+  transition:transform .5s var(--ease-out),box-shadow .5s var(--ease-out),filter .5s var(--ease-out);
+  will-change:transform;
+  box-shadow:0 2px 10px rgba(15,15,14,.10);
+}
+/* pause the whole column when hovering a cover inside it */
+.col:has(.cover:hover),.col.is-paused{animation-play-state:paused}
+/* paused columns stop; other columns keep moving */
+.cover:hover,.cover:focus-visible{
+  transform:scale(1.12);
+  z-index:8;
+  box-shadow:0 26px 54px -14px rgba(15,15,14,.4);
+}
+.cover:active{transform:scale(1.04)}
+.cover .deco{position:absolute;border-radius:50%;pointer-events:none}
+.cover .cv-kicker{
+  position:absolute;top:16px;left:18px;
+  font-family:var(--serif);font-style:italic;font-size:12px;opacity:.85;
+}
+.cover .cv-title{
+  position:absolute;left:18px;right:16px;bottom:18px;
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(20px,1.8vw,27px);line-height:1.05;letter-spacing:-.01em;
+}
+.cover .cv-arrow{
+  position:absolute;top:16px;right:16px;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(15,15,14,.85);color:#fff;
+  display:grid;place-items:center;
+  opacity:0;transform:scale(.6);
+  transition:opacity .35s var(--ease-out),transform .35s var(--ease-out);
+}
+.cover:hover .cv-arrow,.cover:focus-visible .cv-arrow{opacity:1;transform:scale(1)}
+.cover .cv-arrow svg{width:13px;height:13px}
+.covers-hint{
+  position:absolute;z-index:4;right:62px;bottom:34px;
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--nav-muted);
+  opacity:.85;pointer-events:none;text-align:right;
+}
+.covers-hint::after{content:"";display:block;width:46px;height:2px;background:var(--red);margin-top:8px;border-radius:2px;margin-left:auto}
+
+/* ---- home first screen + second screen (post cards) ---- */
+.view-home{overflow-y:auto;overscroll-behavior:contain}
+.home-screen{position:relative;height:100svh;flex:none}
+
+.postcards{
+  position:relative;z-index:2;
+  background:var(--paper);
+  padding:24px 86px 96px;
+  display:flex;flex-direction:column;gap:40px;
+}
+.pcards-head{max-width:640px;margin-bottom:8px}
+.pcards-title{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(30px,3.6vw,52px);line-height:1.08;letter-spacing:-.015em;
+  margin:14px 0 16px;
+}
+.pcards-title em{font-style:italic;color:var(--red)}
+.pcards-sub{font-size:16px;line-height:1.6;color:rgba(15,15,14,.65)}
+
+.pcard{
+  display:grid;grid-template-columns:3fr 4fr 2.5fr;
+  border-radius:28px;overflow:hidden;
+  border:1px solid var(--nav-line);
+  min-height:380px;
+  cursor:pointer;
+  box-shadow:0 2px 12px rgba(15,15,14,.08);
+  transition:transform .5s var(--ease-out),box-shadow .5s var(--ease-out);
+  /* scroll-reveal (set by JS) */
+  opacity:0;transform:translateY(48px);
+}
+.pcard.in{
+  opacity:1;transform:translateY(0);
+  transition:transform .8s var(--ease-out),box-shadow .5s var(--ease-out),opacity .8s var(--ease-out);
+}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 30px 60px -18px rgba(15,15,14,.28)}
+.pcard:active{transform:translateY(-2px) scale(.995)}
+
+.pcard__text{
+  padding:clamp(28px,3.4vw,48px);
+  display:flex;flex-direction:column;justify-content:center;gap:16px;
+  color:var(--card-cream);
+}
+.pcard__kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow)}
+.pcard__name{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(26px,2.8vw,42px);line-height:1.1;letter-spacing:-.01em;
+}
+.pcard__name em{font-style:italic;color:var(--yellow)}
+.pcard__lede{font-size:15px;line-height:1.6;color:rgba(249,246,241,.9);max-width:34ch}
+.pcard__go{
+  align-self:flex-start;margin-top:6px;
+  background:var(--card-cream);color:var(--ink);
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:12px 22px;border-radius:999px;
+  transition:transform .3s var(--ease-out),background .3s,color .3s;
+}
+.pcard:hover .pcard__go{transform:translateX(4px)}
+
+.pcard__media{position:relative;min-height:280px;overflow:hidden}
+.pcard__media img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .8s var(--ease-out);
+}
+.pcard:hover .pcard__media img{transform:scale(1.05)}
+
+.pcard__side{
+  background:var(--lavender-tint,#e9e0f5);
+  padding:clamp(24px,3vw,44px);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:18px;text-align:center;
+}
+.pcard__side .ps-lines{
+  font-family:var(--serif);font-weight:700;font-size:15px;line-height:1.7;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
+}
+.pcard__side .ps-note{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(15,15,14,.55)}
+.pcard__side .ps-btn{
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:11px 22px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);
+  transition:background .3s,color .3s;
+}
+.pcard:hover .pcard__side .ps-btn{background:var(--ink);color:#fff}
+
+/* ============ ARTICLE VIEWS ============ */
+.art-wrap{max-width:760px;margin:0 auto;padding:32px 24px 96px}
+.crumb{display:flex;align-items:center;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+.back-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:10px 18px 10px 14px;border-radius:999px;
+  background:var(--ink);color:#fff;
+  transition:transform .3s var(--ease-out),background .3s;
+}
+.back-btn:hover{transform:translateX(-3px);background:#2c2c2a}
+.back-btn svg{width:12px;height:12px}
+.crumb .path{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--nav-muted)}
+
+.a-kicker{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--red);margin-bottom:14px}
+.a-title{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(40px,6vw,68px);line-height:1.04;letter-spacing:-.015em;
+  margin-bottom:22px;
+}
+.a-title em{font-style:italic;color:var(--red)}
+.a-lede{font-size:19px;line-height:1.6;color:rgba(15,15,14,.72);margin-bottom:18px}
+.byline{font-size:13px;color:var(--nav-muted);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.byline span+span::before{content:"· "}
+
+.prose{font-size:17.5px;line-height:1.85}
+.prose p+p{margin-top:1.35em}
+.prose>p:first-of-type::first-letter{
+  font-family:var(--serif);font-weight:900;font-size:4.4em;
+  float:left;line-height:.8;padding:8px 14px 0 0;color:var(--red);
+}
+.prose figure{margin:2.4em 0}
+.prose figure img{border-radius:var(--r);border:1px solid var(--nav-line)}
+.prose figcaption{margin-top:10px;font-size:12.5px;color:var(--nav-muted)}
+.ornament{text-align:center;letter-spacing:1em;padding-left:1em;margin:2.2em 0;color:var(--red)}
+
+.pull{
+  background:var(--card-cream);border:1px solid var(--nav-line);
+  border-radius:var(--r);padding:clamp(30px,4vw,52px);margin:2.4em 0;
+}
+.pull p{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(26px,3.4vw,40px);line-height:1.15;max-width:22ch;
+}
+.pull p em{font-style:italic;color:var(--red)}
+.pull cite{
+  display:block;margin-top:18px;font-style:normal;font-size:13px;color:var(--nav-muted);
+  border-top:1px dashed var(--nav-rule);padding-top:14px;
+}
+
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:2.4em 0}
+.check{border:1px solid var(--nav-line);border-radius:18px;padding:22px 24px;background:var(--card-cream)}
+.check .ck{font-family:var(--serif);font-weight:900;font-size:21px;margin-bottom:6px}
+.check p{font-size:14.5px;color:rgba(15,15,14,.7)}
+
+.sect{border-top:1px solid var(--nav-line);padding:2.2em 0 0;margin-top:2.4em}
+.sect .sh{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.sect .sn{font-family:var(--serif);font-style:italic;font-weight:900;font-size:clamp(34px,4vw,52px);color:#cfc9bd}
+.sect h2{font-family:var(--serif);font-weight:900;font-size:clamp(23px,2.6vw,32px);line-height:1.15}
+.sect h2 em{font-style:italic;color:var(--red)}
+.sect p+p{margin-top:1.2em}
+
+.notes{
+  background:var(--card-cream);border:1px solid var(--nav-line);
+  border-radius:var(--r);padding:clamp(24px,3.4vw,42px);margin:2.6em 0;
+}
+.notes .nh{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.notes .ns{font-size:14px;color:var(--nav-muted);margin-bottom:20px}
+.notes table{width:100%;border-collapse:collapse}
+.notes th,.notes td{text-align:left;padding:12px 12px;border-bottom:1px dashed var(--nav-line);vertical-align:top;font-size:14px}
+.notes tr:last-child td{border-bottom:none}
+.notes th{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.notes td:first-child{font-family:var(--serif);font-weight:700;font-size:16px;width:23%}
+.notes td:nth-child(2){font-style:italic;color:var(--red);width:33%}
+.notes ol{margin-left:1.4em}
+.notes li{font-size:13.5px;margin-bottom:.5em;color:rgba(15,15,14,.7)}
+
+/* ============ RESPONSIVE ============ */
+/* --- mobile / narrow: single scrolling column --- */
+@media (max-width:900px), (max-aspect-ratio:27/25){
+  .hdr{left:0;right:0;height:64px;border-radius:0;box-shadow:0 1px 0 var(--nav-line)}
+  .util{display:none}
+  .main-row{height:64px;padding:0 16px;gap:12px}
+  .logo .brand{font-size:21px}
+  .logo .tag{font-size:7.5px}
+  .nav{display:none}
+  .cta .tickets{width:auto;height:44px;padding:0 18px;border-radius:999px;font-size:13px}
+
+  /* home becomes a scrollable column: hero → covers → grid
+     padding-top clears the 64px fixed header (view-home is inset:0) */
+  .view-home{overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;padding-top:64px}
+  .view-home::-webkit-scrollbar{width:0}
+
+  .hero{position:relative;left:0;top:0;width:auto;padding:20px 20px 0;z-index:3;flex:none}
+  h1{font-size:clamp(30px,8.6vw,48px);line-height:1.05}
+  .hero p{width:auto;margin-top:16px;font-size:15px;line-height:23px}
+  .acts{margin-top:16px;gap:12px}
+  .acts .tickets{padding:12px 20px;font-size:12px}
+  .acts .inst{display:none}
+
+  .covers-hint{display:none}
+
+  /* unwrap the first screen: hero → grid stack directly */
+  .home-screen{height:auto;display:contents}
+
+  .postcards{order:4;padding:10px 20px 64px;gap:22px}
+  .pcards-head{margin-bottom:2px}
+  .pcards-title{font-size:clamp(24px,6.4vw,32px)}
+  .pcards-sub{font-size:14px}
+
+  /* compact horizontal card: media left, interactive text right, side panel hidden */
+  .pcard{grid-template-columns:38% 1fr;min-height:0}
+  .pcard__media{order:-1;min-height:0;height:auto;aspect-ratio:1/1}
+  .pcard__side{display:none}
+  .pcard__text{padding:18px 18px 20px;gap:8px;justify-content:center}
+  .pcard__kicker{font-size:9.5px}
+  .pcard__name{font-size:clamp(18px,4.6vw,22px);line-height:1.14}
+  .pcard__lede{font-size:12.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .pcard__go{padding:9px 16px;font-size:10px;margin-top:2px}
+
+  /* mosaic becomes 3 rows auto-scrolling horizontally, alternating directions */
+  .grid{
+    position:relative;left:0;right:0;bottom:0;
+    order:3;z-index:1;flex:none;
+    display:flex;flex-direction:column;gap:10px;
+    overflow:hidden;
+    padding:6px 0 10px;
+  }
+  .col{
+    display:flex;flex-direction:row;align-items:center;
+    position:static;left:auto;top:auto;
+    gap:10px;width:max-content;
+    animation:rowLeft 26s linear infinite;
+    will-change:transform;
+  }
+  .col.c2{animation-name:rowRight}
+  .cell{width:112px;height:112px;border-radius:16px;flex:none}
+  .cell.cover{width:158px}
+  .cover .cv-kicker{top:12px;left:14px;font-size:10px}
+  .cover .cv-title{left:14px;right:12px;bottom:12px;font-size:17px}
+  .cover .cv-arrow{top:10px;right:10px;width:26px;height:26px}
+  .x1,.x2,.x3{display:none}
+
+  @media (prefers-reduced-motion:reduce){
+    .grid{overflow-x:auto}
+    .col{animation:none}
+  }
+
+  .view-article{padding-top:64px}
+  .checks{grid-template-columns:1fr}
+}
+
+/* --- desktop: fixed hero left + mosaic right, covers strip at bottom --- */
+@media (min-width:901px) and (min-aspect-ratio:27/25){
+  .view-home .grid{left:auto;right:62px;width:calc(3*var(--col) + 2*var(--gap))}
+  .c1{left:0;top:86px}
+  .c2{left:calc(var(--col) + var(--gap));top:-11.5px}
+  .c3{left:calc(2*(var(--col) + var(--gap)));top:86.5px}
+  .x1,.x2,.x3{display:none}
+  .hero{top:180px}
+  .hero p{margin-top:30px;width:min(440px,34vw)}
+}
+
+/* wide screens: extra columns extend LEFT of the main 3-col grid,
+   one col+gap pitch apart, keeping uniform gap spacing */
+@media (min-width:1460px) and (min-aspect-ratio:27/25){
+  .x1{display:flex;left:calc(-1*(var(--col) + var(--gap)));right:auto;top:86px}
+}
+@media (min-width:1700px) and (min-aspect-ratio:27/25){
+  .x2{display:flex;left:calc(-2*(var(--col) + var(--gap)));right:auto;top:-11.5px}
+}
+
+/* ============ ENTRANCE ============ */
+html.intro .hdr{transform:translateY(calc(-100% - 48px));opacity:0}
+html.intro .hero .inner>*{opacity:0}
+html.intro h1 .ln{transform:translateY(110%)}
+h1.masking{overflow:hidden}
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- ================= HEADER ================= -->
+  <header class="hdr" data-open="false">
+    <div class="util">
+      <span class="ph-line">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Number :<br>69466709</span>
+      </span>
+      <span class="vr"></span>
+      <span class="ph-line">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Email Adress :<br>14774964817@163.com</span>
+      </span>
+      <nav class="unav" aria-label="Useful links">
+        <a href="mailto:14774964817@163.com">Contact</a>
+        <a href="#" data-view="about">About</a>
+        <button class="search" aria-label="Search">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </nav>
+    </div>
+    <div class="main-row">
+      <a class="logo" href="#" data-view="home" aria-label="DENG Shuyi Angelica, home">
+        <span class="brand">DENG Shuyi Angelica</span>
+        <span class="tag">My Autobiography</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#" data-view="post-1">Autobiography</a>
+        <a href="#" data-view="post-2">Reflection</a>
+        <a href="#" data-view="about">About</a>
+      </nav>
+      <div class="cta">
+        <a class="tickets" href="#" data-view="home" data-scroll="postcards">Start reading</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HOME VIEW ================= -->
+  <section class="view view-home is-active" id="view-home" data-view-name="home">
+
+   <div class="home-screen">
+    <div class="hero">
+      <div class="inner">
+        <h1 id="heroH1">
+          <span class="ln"><span>My</span></span>
+          <span class="ln"><span>Autobiography</span></span>
+        </h1>
+        <p><b>“Atrium”</b> archives my inner-life stories as a personal digital retrospective, autumn 2026 — an autobiography and a reflection, I published where someone can answer.</p>
+        <div class="acts">
+          <a class="tickets" href="#" data-view="home" data-scroll="postcards">Browse stories</a>
+          <a class="inst" href="#" data-view="post-2">Latest — Reflection
+            <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="covers-hint">Latest stories — hover to pause · click to read</p>
+
+    <!-- mosaic: photo / color cells + injected cover cells, all scrolling together -->
+    <div class="grid" id="mosaic">
+      <div class="col x1">
+        <div class="cell blue"></div><div class="cell ph i-man"></div><div class="cell red"></div>
+        <div class="cell ph i-sculpt"></div><div class="cell cream"></div>
+      </div>
+      <div class="col x2">
+        <div class="cell yellow"></div><div class="cell ph i-sil"></div><div class="cell cream"></div>
+        <div class="cell red"></div><div class="cell ph i-visit"></div>
+      </div>
+      <div class="col c1" data-cover-col>
+        <div class="cell red"></div><div class="cell ph i-sculpt f-sculpt"></div>
+        <div class="cell ph i-man f-man"></div><div class="cell blue"></div><div class="cell ph i-visit"></div>
+      </div>
+      <div class="col c2" data-cover-col>
+        <div class="cell yellow"></div><div class="cell ph i-visit f-visit"></div>
+        <div class="cell dark"></div><div class="cell ph i-sil"></div><div class="cell red"></div>
+      </div>
+      <div class="col c3" data-cover-col>
+        <div class="cell blue"></div><div class="cell cream"></div>
+        <div class="cell ph i-sil f-sil"></div><div class="cell yellow"></div><div class="cell ph i-sculpt"></div>
+      </div>
+    </div>
+    </div>
+
+    <!-- second screen: one large card per post, revealed on scroll -->
+    <div class="postcards" id="postcards" aria-label="Stories in full">
+      <div class="pcards-head">
+        <p class="caps" style="color:var(--red)">Stories in full</p>
+        <h2 class="pcards-title">This autobiography is a promise to myself.</h2>
+        <p class="pcards-sub">What parts stay, what is left unsaid, and who will listen. Read it whole.</p>
+      </div>
+      <!-- large cards injected here from POSTS -->
+    </div>
+  </section>
+
+  <!-- ================= POST 1 ================= -->
+  <section class="view view-article" id="view-post-1" data-view-name="post-1" aria-label="Post one — autobiography">
+    <div class="art-wrap">
+      <nav class="crumb">
+        <a class="back-btn" href="#" data-view="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> All stories</a>
+        <span class="path">Home → Stories → 01 · Autobiography</span>
+      </nav>
+      <p class="a-kicker">01 · Autobiography</p>
+      <h1 class="a-title">The quiet space <em>I built</em></h1>
+      <p class="a-lede">On months of forcing myself to fit in, and learning to accept my quiet, inner world.</p>
+      <div class="byline"><span>By DENG Shuyi Angelica</span><span>October 2026</span><span>5 min read</span></div>
+      <div class="prose">
+        <p>My inner atrium was quiet and unfinished. As a teenager, I carried many unspoken thoughts. School filled most of my days. I watched other people’s loud, bright lives and wondered how to arrange my own inner space.</p>
+        <p>Every day, I walked between classrooms and homework. I kept comparing my inner atrium to everyone else’s. I wished my mind could be more open, more energetic, more “perfect”. I tried to rebuild myself to match what I thought the world expected.</p>
+        <p>For nearly a year, I tried to act like someone louder and more outgoing. I forced myself to talk more, join noisy groups, and perform a version of myself that did not feel real. Every social gathering left me mentally drained. I paused before I joined in, afraid my true quiet self would not be good enough.</p>
+        <p>All that rebuilding grew tiring. I crowded my mind with other people’s standards. Instead of feeling brighter, I felt empty. Nothing felt truly like me. I fell into doubt. I worried there was something wrong with how my inner world was built.</p>
+      </div>
+      <blockquote class="pull">
+        <p>I stopped pretending and started tending to my own atrium.</p>
+        <cite>On the year I stopped tearing down my nature just to belong.</cite>
+      </blockquote>
+      <div class="prose">
+        <p>Because of that struggle, I stopped destroying my inner atrium to copy others. I began to observe what already lived within me: my quiet reflections, my small hopes, my simple personal motto, and all the lessons I picked up from ordinary school‑day moments.</p>
+        <figure>
+          <img src="assets/img/fig-01.jpg" alt="A close-up from the author’s own surroundings, used as evidence rather than decoration." loading="lazy">
+          <figcaption>Fig.01 — Replace with a close-up of an object so the image works as evidence rather than decoration. Photo: author.</figcaption>
+        </figure>
+        <p>Until finally, I understood. There is no universal blueprint for an inner atrium. It does not need to look like anyone else’s. My value comes from accepting the space that is mine.</p>
+        <p>And ever since then, I hold my motto close: Grow in your own space. I still visit the busy world outside. But I no longer destroy my inner atrium just to fit in. School continues to bring new challenges, yet I return to this quiet inner space to ground myself.</p>
+        <p>This post is the two‑minute version of that year, which means most of it is gone: the awkward conversations, the tired evenings, the small moments I tried to change myself. What is left is the shape — comfort, then the hole, then a different way of being with others.</p>
+        <p>I still pause before I join in. But now I pause for myself, not for anyone else.</p>
+      </div>
+      <section class="notes">
+        <p class="nh">Craft notes</p>
+        <p class="ns">The devices this post is built on, so the writing can be read as well as felt.</p>
+        <table>
+          <thead><tr><th>Device</th><th>In the text</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Dramatic question</td><td>“I wondered how to arrange my own inner space.”</td><td>Opens on a loss before explaining it.</td></tr>
+            <tr><td>Concrete number</td><td>“For nearly a year, I tried to act like someone louder and more outgoing.”</td><td>Specificity buys belief.</td></tr>
+            <tr><td>Economy</td><td>“Nothing felt truly like me.”</td><td>Three words carry a year.</td></tr>
+            <tr><td>Extended metaphor</td><td>“inner atrium,” returned to in every section</td><td>One image holds the whole argument together.</td></tr>
+            <tr><td>Repetition with a turn</td><td>“I still pause before I join in. But now I pause for myself.”</td><td>Returns to the opening image and reverses it.</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <nav class="crumb">
+        <a class="back-btn" href="#" data-view="post-2">Next — 02 · Reflection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ================= POST 2 ================= -->
+  <section class="view view-article" id="view-post-2" data-view-name="post-2" aria-label="Post two — reflection">
+    <div class="art-wrap">
+      <nav class="crumb">
+        <a class="back-btn" href="#" data-view="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> All stories</a>
+        <span class="path">Home → Stories → 02 · Reflection</span>
+      </nav>
+      <p class="a-kicker">02 · Reflection</p>
+      <h1 class="a-title">This autobiography <em>is a promise</em> to myself</h1>
+      <p class="a-lede">I wrote The Quiet Space I Built about learning to be at peace with myself amid noisy surroundings. Yet once I chose to share it, the story no longer belonged only to my private memory. It became a promise: to my younger self, to everyone who appears in the background of my recollections, and to every future reader.</p>
+      <div class="byline"><span>By ——</span><span>October 2026</span><span>4 min read</span></div>
+      <div class="prose">
+        <p>As I revised my story, four gentle yet weighty ideas rose to guide my writing: consent, dignity, truth, care. I did not treat them like a checklist to hurriedly mark done. They were four quiet voices that kept pulling me back to reread every line with softer, sharper eyes.</p>
+      </div>
+      <div class="prose">
+        <section class="sect">
+          <div class="sh"><h2>Four quiet questions for my story</h2></div>
+          <div class="checks">
+            <div class="check"><p>Have I respected others before including them, even anonymously? A hidden name does not equal permission.</p></div>
+            <div class="check"><p>Do I portray these people as whole individuals, rather than mere scenery for my growth? Have I reduced them to a vague “loud crowd”?</p></div>
+            <div class="check"><p>Do I write from genuine personal feeling, or twist memories to polish my own narrative at others’ expense?</p></div>
+            <div class="check"><p>Have I considered how these words will land? Even without names, could someone recognise the moment and feel unexpectedly exposed?</p></div>
+          </div>
+        </section>
+        <section class="sect">
+          <div class="sh"><span class="sn">01</span><h2>The promise begins before I press publish</h2></div>
+          <p>In The Quiet Space I Built, I describe chasing group acceptance and growing exhausted, before choosing to protect my own quiet space. I omitted names, direct quotes and identifying details, and initially thought this was enough.</p>
+          <p>But anonymity is only a basic safeguard. The harder question is not whether they can be identified, but whether they should feature in my story at all. Drawing on shared moments from school life still borrows pieces of other people’s experiences. Before publishing, I must judge whether I represent them fairly.</p>
+        </section>
+        <section class="sect">
+          <div class="sh"><span class="sn">02</span><h2>Dignity is an editing choice</h2></div>
+          <p>It would have been easy to frame others as overwhelming or insensitive, true as that felt to me at the time. But that would only show my perspective and diminish theirs.</p>
+          <p>So I refocused the story inward. Instead of centring conflict between “them” and me, it follows my journey of understanding myself. Dignity means I do not turn other people into simple foils to make my growth look clearer.</p>
+          <p>A story that makes my journey feel clear and neat can still shrink someone else’s.</p>
+        </section>
+        <section class="sect">
+          <div class="sh"><span class="sn">03</span><h2>Truth matters more than a good line</h2></div>
+          <p>Autobiography condenses messy life into concise prose. This compression risks turning my subjective feelings into the definitive truth about other people.</p>
+          <p>I kept asking myself if I prioritised honest recollection, or just elegant, memorable phrasing. A well-written sentence is unfair if it oversimplifies another person’s reality. My simple test: would the people in this memory feel fairly represented if they read this? I cannot guarantee their reaction, but I tried my best.</p>
+        </section>
+        <section class="sect">
+          <div class="sh"><span class="sn">04</span><h2>Care is not an afterthought</h2></div>
+          <p>Care shows in small editing decisions: cutting specific conversations, softening judgemental remarks, removing recognisable clues. These are not weaknesses in the story; they are acts of responsibility.</p>
+          <p>Readers could be tutors, classmates or strangers, all bringing different perspectives. Words that feel liberating to me might hurt someone else. To write with care is to assume the people in the background may one day read this.</p>
+        </section>
+        <section class="sect">
+          <div class="sh"><h2>Closing reflection</h2></div>
+          <p>These four ideas were never strict rules. They taught me to read my writing humbly and slowly.</p>
+          <p>Consent reminds me anonymity does not erase a person’s presence in my words. Dignity warns against flattening others to simplify my own story. Truth tells me my experience is just one thread in a larger story. Care reminds me publishing transforms private memory into public text.</p>
+          <p>This autobiography is a promise to myself. That promise only holds meaning if it honours the people tangled in my past. My quiet space feels honest not because I shared everything, but because I carefully chose what to leave out.</p>
+        </section>
+      </div>
+      <nav class="crumb">
+        <a class="back-btn" href="#" data-view="about">Next — About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="view view-article" id="view-about" data-view-name="about" aria-label="About this blog">
+    <div class="art-wrap">
+      <nav class="crumb">
+        <a class="back-btn" href="#" data-view="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> All stories</a>
+        <span class="path">Home → About</span>
+      </nav>
+      <p class="a-kicker">About this blog</p>
+      <h1 class="a-title">An assignment that <em>taught me</em> to write with care.</h1>
+      <div class="prose">
+        <p>Both posts explore digital storytelling. I set out to share a quiet personal story, and learned that an honest voice comes with responsibility. I only grasped this while editing my own memories.</p>
+        <p>The first is my autobiography, The Quiet Space I Built. The second is my reflection on publishing memories that include other people. Neither is finished, yet both are public. That is the point.</p>
+      </div>
+      <div class="checks">
+        <div class="check"><p class="ck">Ask first</p><p>Consent before including others. Even unnamed people deserve consideration, and the right to be left out.</p></div>
+        <div class="check"><p class="ck">See them fully</p><p>Dignity in every line. I will not reduce others to simple backdrops for my own growth.</p></div>
+        <div class="check"><p class="ck">Speak my truth</p><p>My perspective is partial. I honour the complexity of what happened, rather than polishing a neat narrative.</p></div>
+        <div class="check"><p class="ck">Publish with care</p><p>Write assuming they might read it. Every edit is an act of respect for those who appear in my memories.</p></div>
+      </div>
+      <section class="notes">
+        <p class="nh">Course</p>
+        <p style="font-size:14.5px">COURSE LAC23721 · Innovat' Digital Communication · Session 07 — Use of Digital Storytelling. Typefaces: Archivo, Fraunces, Inter (SIL OFL). Images are placeholders pending the author's own photographs.</p>
+      </section>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var html = document.documentElement;
+
+  /* ======== POST DATA — add an entry here, cover AND large card auto-generate ======== */
+  var POSTS = [
+    { id:'post-1', kicker:'01 · Autobiography', title:'The quiet space I built',
+      from:'#b8c49a', to:'#8ea06a', fg:'#2c3a24', deco:'rgba(248,239,221,.4)',
+      img:'assets/img/cover-1.svg',
+      cardTitle:'A self, unfolded in <em>one breath.</em>',
+      cardLede:'The two-minute version of growing up — quiet comfort, then the hole, then a different way of living inside my own atrium.',
+      sideLines:'READ SLOW ·<br>RECALL WHOLE ·<br>SPEAK PLAIN' },
+    { id:'post-2', kicker:'02 · Reflection', title:'Writing is commitment',
+      from:'#cbb9e6', to:'#a48ccc', fg:'#2c2440', deco:'rgba(181,84,60,.35)',
+      img:'assets/img/cover-2.svg',
+      cardTitle:'This autobiography is a promise to myself',
+      cardLede:'Who appears in it, who gets cut, and who is listening. Four checks, argued against my own published post.',
+      sideLines:'BE HONEST ·<br>STAY GENTLE ·<br>STAY TRUE' },
+    { id:'about',  kicker:'About · Manifesto', title:'Why a blog, not a document',
+      from:'#e6b13f', to:'#c98a2d', fg:'#3a2c10', deco:'rgba(248,239,221,.45)',
+      img:'assets/img/band-about.svg',
+      cardKicker:'',
+      cardTitle:'',
+      cardLede:'Home of “The Quiet Space I Built”. I write with consent, dignity, truth and care, to tell my story respectfully.',
+      sideLines:'SESSION 07 ·<br>AUTUMN 2026' }
+  ];
+
+  function esc(s){ return s.replace(/&/g,'&amp;'); }
+
+  function buildCovers(){
+    // inject cover cells into the scrolling columns (round-robin)
+    var cols = document.querySelectorAll('#mosaic .col[data-cover-col]');
+    var colList = Array.prototype.slice.call(cols);
+    if (!colList.length) colList = document.querySelectorAll('#mosaic .col');
+    POSTS.forEach(function(p, i){
+      var col = colList[i % colList.length];
+      var el = document.createElement('a');
+      el.className = 'cell cover';
+      el.href = '#' + p.id;
+      el.setAttribute('data-view', p.id);
+      el.setAttribute('aria-label', p.title);
+      el.style.setProperty('--cover-bg', 'linear-gradient(150deg,' + p.from + ',' + p.to + ')');
+      el.style.setProperty('--cover-fg', p.fg);
+      el.innerHTML =
+        '<span class="deco" style="width:38%;aspect-ratio:1;top:-14%;right:-10%;background:' + p.deco + '"></span>' +
+        '<span class="deco" style="width:16%;aspect-ratio:1;bottom:34%;right:18%;background:' + p.deco + '"></span>' +
+        '<span class="cv-kicker">' + esc(p.kicker) + '</span>' +
+        '<span class="cv-title">' + esc(p.title) + '</span>' +
+        '<span class="cv-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>';
+      // insert at a varied position so covers are spread through the scroll
+      var children = col.children;
+      var insertAt = (i * 3 + 2) % (children.length + 1);
+      col.insertBefore(el, children[insertAt] || null);
+    });
+  }
+  buildCovers();
+
+  /* large cards below the fold — one per post, revealed on scroll */
+  function buildPostcards(){
+    var wrap = document.getElementById('postcards');
+    if (!wrap) return;
+    // keep the heading, append cards after it
+    POSTS.forEach(function(p){
+      var el = document.createElement('article');
+      el.className = 'pcard';
+      el.setAttribute('data-view', p.id);
+      el.setAttribute('aria-label', p.title);
+      var kicker = (p.cardKicker !== undefined) ? p.cardKicker : p.kicker;
+      el.innerHTML =
+        '<div class="pcard__text" style="background:linear-gradient(150deg,' + p.to + ',' + p.from + ')">' +
+          (kicker ? '<p class="pcard__kicker">' + esc(kicker) + '</p>' : '') +
+          (p.cardTitle ? '<h3 class="pcard__name">' + p.cardTitle + '</h3>' : '') +
+          '<p class="pcard__lede">' + esc(p.cardLede) + '</p>' +
+          '<span class="pcard__go">Read the story →</span>' +
+        '</div>' +
+        '<div class="pcard__media"><img src="' + p.img + '" alt="" loading="lazy"></div>' +
+        '<div class="pcard__side">' +
+          '<p class="ps-lines">' + p.sideLines + '</p>' +
+          '<p class="ps-note">LAC23721 · Session 07</p>' +
+          '<span class="ps-btn">Open</span>' +
+        '</div>';
+      wrap.appendChild(el);
+    });
+
+    /* scroll reveal — cards rise once when entering the viewport */
+    var cards = wrap.querySelectorAll('.pcard');
+    cards.forEach(function(c, i){
+      // stagger: each card starts its rise a beat after the previous one
+      c.style.transitionDelay = (i * 110) + 'ms';
+    });
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting){
+            en.target.classList.add('in');
+            io.unobserve(en.target);
+          }
+        });
+      }, {root: null, threshold: 0.12, rootMargin: '0px 0px -6% 0px'});
+      cards.forEach(function(c){ io.observe(c); });
+      /* belt-and-braces: if the card is already on screen at load, reveal now */
+      setTimeout(function(){
+        cards.forEach(function(c){
+          var r = c.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) c.classList.add('in');
+        });
+      }, 300);
+    } else {
+      cards.forEach(function(c){ c.classList.add('in'); });
+    }
+  }
+  buildPostcards();
+
+  /* ======== VIEW ROUTER (smooth in-page transitions) ======== */
+  var current = 'home';
+
+  function switchView(name, skipTop){
+    if (name === current){
+      if (!skipTop){
+        var v0 = document.getElementById('view-' + name);
+        if (v0 && v0.scrollTo) v0.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+      }
+      return;
+    }
+    var from = document.getElementById('view-' + current);
+    var to = document.getElementById('view-' + name);
+    if (!to) return;
+    from.classList.remove('is-active');
+    to.classList.add('is-active');
+    to.scrollTop = 0;
+    current = name;
+    var h = to.querySelector('.a-title, h1');
+    if (h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-view]');
+    if (!t) return;
+    e.preventDefault();
+    var targetView = t.getAttribute('data-view');
+    var scrollSel = t.getAttribute('data-scroll');
+    switchView(targetView, !!scrollSel);
+    if (scrollSel){
+      // wait for the view transition, then scroll within the home view
+      setTimeout(function(){
+        var el = document.getElementById(scrollSel);
+        if (el) el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+      }, reduce ? 0 : 620);
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && current !== 'home') switchView('home');
+  });
+
+  /* ======== MOSAIC: clone cells for seamless 50% loop ======== */
+  document.querySelectorAll('.col').forEach(function(col){
+    Array.prototype.slice.call(col.children).forEach(function(c){ col.appendChild(c.cloneNode(true)); });
+  });
+
+  /* ======== hover pause: stop ONLY the column that owns a hovered cover ======== */
+  document.querySelectorAll('.cell.cover').forEach(function(cov){
+    cov.addEventListener('mouseenter', function(){
+      var col = cov.closest('.col');
+      if (col) col.classList.add('is-paused');
+    });
+    cov.addEventListener('mouseleave', function(){
+      var col = cov.closest('.col');
+      if (col) col.classList.remove('is-paused');
+    });
+  });
+
+  /* ======== ENTRANCE TIMELINE ========
+     NOTE: the column marquee (CSS @keyframes colDown/colUp) runs
+     INDEPENDENTLY and is never paused here. Entrance only fades
+     opacity in — it never touches column transform, so the CSS
+     scroll animation can never be blocked by a WAAPI transform. */
+  function playEntrance(){
+    var h1 = document.getElementById('heroH1');
+    if (!h1) return;
+    var lines = h1.querySelectorAll('.ln');
+    var EXPO = 'cubic-bezier(.16,1,.3,1)';
+    var QUART = 'cubic-bezier(.25,1,.5,1)';
+
+    if (reduce){
+      html.setAttribute('data-entrance','done');
+      return;
+    }
+
+    html.classList.add('intro');
+    setTimeout(function(){ html.classList.remove('intro'); }, 2600);
+
+    document.querySelector('.hdr').animate([
+      {transform:'translateY(calc(-100% - 48px))', opacity:0},
+      {transform:'translateY(0)', opacity:1}
+    ], {duration:700, easing:EXPO, fill:'forwards'});
+
+    document.querySelectorAll('.util > *').forEach(function(el,i){
+      el.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:420, delay:160+i*35, easing:QUART, fill:'both'});
+    });
+    [['.logo',8],['.nav > *',6],['.cta > *',8]].forEach(function(pair,i){
+      document.querySelectorAll(pair[0]).forEach(function(el,j){
+        el.animate([{opacity:0,transform:'translateY('+pair[1]+'px)'},{opacity:1,transform:'translateY(0)'}],
+          {duration:480, delay:180+i*45+j*30, easing:QUART, fill:'both'});
+      });
+    });
+
+    h1.classList.add('masking');
+    lines.forEach(function(ln,i){
+      ln.animate([{transform:'translateY(110%)'},{transform:'translateY(0)'}],
+        {duration:750, delay:180+i*65, easing:EXPO, fill:'forwards'});
+    });
+
+    document.querySelectorAll('.hero .inner > p, .hero .inner > .acts').forEach(function(el,i){
+      el.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:550, delay:420+i*90, easing:QUART, fill:'both'});
+    });
+
+    // covers fade in — opacity only, so they never fight the column marquee
+    document.querySelectorAll('.cell.cover').forEach(function(el,i){
+      el.animate([{opacity:0},{opacity:1}],
+        {duration:550, delay:480+i*60, easing:QUART, fill:'both'});
+    });
+
+    // grid columns fade in — opacity only; CSS transform keeps scrolling
+    document.querySelectorAll('.grid .col').forEach(function(c,i){
+      c.animate([{opacity:0},{opacity:1}],
+        {duration:700, delay:80+i*45, easing:'cubic-bezier(.22,1,.36,1)', fill:'both'});
+    });
+
+    setTimeout(function(){
+      html.classList.remove('intro');
+      h1.classList.remove('masking');
+      html.setAttribute('data-entrance','done');
+    }, 1500);
+  }
+
+  // start as soon as the DOM is parsed (script sits at end of body) —
+  // waiting for window 'load' stalled the entrance behind font/image requests
+  playEntrance();
+})();
+</script>
+</body>
+</html>
