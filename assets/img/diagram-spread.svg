@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 470" role="img" aria-label="图示：一条故事从写完、被平台排序、被陌生人转发，到被二次改写的传播链，最后回到作者">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#33402c"/>
+    </marker>
+    <marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b5543c"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="470" fill="#f8efdd"/>
+
+  <text x="50" y="68" font-family="Inter, Arial, sans-serif" font-size="15" letter-spacing="4" fill="#b5543c">FIG. 02 / THE SPREAD CHAIN</text>
+  <line x1="50" y1="92" x2="1350" y2="92" stroke="#33402c" stroke-width="1"/>
+
+  <g font-family="Inter, Arial, sans-serif" fill="#33402c">
+    <rect x="50" y="150" width="250" height="126" fill="none" stroke="#33402c" stroke-width="1.5"/>
+    <text x="74" y="182" font-size="13" letter-spacing="3" fill="#b5543c">01</text>
+    <text x="74" y="216" font-size="17" letter-spacing="2">YOU WRITE IT</text>
+    <text x="74" y="246" font-size="13" fill="#6b6b55">a private draft, one voice</text>
+
+    <rect x="400" y="150" width="250" height="126" fill="none" stroke="#33402c" stroke-width="1.5"/>
+    <text x="424" y="182" font-size="13" letter-spacing="3" fill="#b5543c">02</text>
+    <text x="424" y="216" font-size="17" letter-spacing="2">THE PLATFORM RANKS IT</text>
+    <text x="424" y="246" font-size="13" fill="#6b6b55">reach is decided for you</text>
+
+    <rect x="750" y="150" width="250" height="126" fill="none" stroke="#33402c" stroke-width="1.5"/>
+    <text x="774" y="182" font-size="13" letter-spacing="3" fill="#b5543c">03</text>
+    <text x="774" y="216" font-size="17" letter-spacing="2">A STRANGER SHARES IT</text>
+    <text x="774" y="246" font-size="13" fill="#6b6b55">the audience joins the cast</text>
+
+    <rect x="1100" y="150" width="250" height="126" fill="none" stroke="#33402c" stroke-width="1.5"/>
+    <text x="1124" y="182" font-size="13" letter-spacing="3" fill="#b5543c">04</text>
+    <text x="1124" y="216" font-size="17" letter-spacing="2">SOMEONE REWRITES IT</text>
+    <text x="1124" y="246" font-size="13" fill="#6b6b55">a remix, a quote, a caption</text>
+  </g>
+
+  <g stroke="#33402c" stroke-width="1.5" fill="none">
+    <line x1="300" y1="213" x2="386" y2="213" marker-end="url(#arw)"/>
+    <line x1="650" y1="213" x2="736" y2="213" marker-end="url(#arw)"/>
+    <line x1="1000" y1="213" x2="1086" y2="213" marker-end="url(#arw)"/>
+  </g>
+
+  <path d="M1225 276 L1225 366 L175 366 L175 292" fill="none" stroke="#b5543c" stroke-width="1.5" stroke-dasharray="6 6" marker-end="url(#arwg)"/>
+
+  <text x="700" y="398" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#b5543c">WHAT COMES BACK IS NO LONGER ONLY YOURS</text>
+  <line x1="50" y1="436" x2="1350" y2="436" stroke="#33402c" stroke-width="1"/>
+</svg>
