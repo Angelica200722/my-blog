@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700">
+  <defs>
+    <linearGradient id="bgb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b5543c"/>
+      <stop offset="1" stop-color="#7e3524"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="700" fill="url(#bgb)"/>
+  <circle cx="760" cy="160" r="220" fill="#e6b13f" opacity="0.4"/>
+  <ellipse cx="220" cy="600" rx="320" ry="180" fill="#33402c" opacity="0.35"/>
+  <g font-family="Fraunces, Georgia, serif" fill="#f8efdd">
+    <text x="80" y="300" font-size="64" font-weight="900">Stories of</text>
+    <text x="80" y="390" font-size="64" font-weight="900" font-style="italic" fill="#e6b13f">inner stillness</text>
+  </g>
+  <text x="80" y="620" font-family="Work Sans, Arial, sans-serif" font-size="22" letter-spacing="3" fill="#f8efdd" opacity="0.65">PHOTO PLACEHOLDER · 1000 × 700</text>
+</svg>
